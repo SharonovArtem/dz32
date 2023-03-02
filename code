@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+namespace dzkurs
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string userInput;
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("О́бщество", "форма объединения людей, обладающих общими интересами, ценностями и целями.");
+            dictionary.Add("Язык", "Разновидность речи, обладающая теми или иными характерными признаками.");
+            dictionary.Add("Речь", "исторически сложившаяся форма общения людей посредством языковых конструкций, создаваемых на основе определённых правил. ");
+            dictionary.Add("Си́мвол", "неиконический (условный) знак, изображение, не имеющее видимого сходства с обозначаемым предметом.");
+            dictionary.Add("Лингви́стика", "наука, изучающая язык.");
+            dictionary.Add("Ци́фры", "система знаков для записи конкретных значений чисел.");
+            dictionary.Add("Систе́ма счисле́ния", "символический метод записи чисел, представление чисел с помощью письменных знаков.");
+            bool isWorking = true;
+            string exitCommand = "выйти";
+
+            Console.WriteLine("Добро пожаловать в словарь! Какое слово вы хотите найти?\nВыход - команда выйти");
+
+            while (isWorking)
+            {
+                userInput = Console.ReadLine();
+
+                if (dictionary.ContainsKey(userInput))
+                {
+                    Console.WriteLine(dictionary[userInput]);
+                    Console.WriteLine("Что-нибудь ещё?\nВыход - команда выйти");
+                }
+                else if (userInput == exitCommand)
+                {
+                    Console.WriteLine("До свидания!");
+                    isWorking = false;  
+                }
+                else
+                {
+                    Console.WriteLine("Такого слова нет, попробуйте ещё раз\nВыход - команда выйти");
+                }
+            }
+        }      
+    }
+}
